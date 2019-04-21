@@ -1,1 +1,82 @@
-pusty
+git init
+
+//Inicjalizacja repositorium
+
+git remote add wielki-elektronik https://github.com/wielki-elektronik/testy.git
+
+//dodanie serwera: twoja-nazwa-zdalnego-repozytrium git://adres-twojego-serwera/nazwa-repozytorium.git
+// lista serwerów: git remote -v
+
+git add *
+
+//dodanie wszystkich plików
+
+git commit -m 'nazwa commita'
+
+//zatwierdzenie zmian
+
+git push wielki-elektronik master
+
+//wys³anie plików do github do ga³êzi master
+
+
+
+///////////////////////////////////////////////////////////
+POBIERANIE Z GITHUB
+git fetch twoja-nazwa-zdalnego-repozytorium
+lub
+git pull twoja-nazwa-zdalnego-repozytorium
+//pull dodatkowo scala zmiany
+
+
+COFANIE ZMIAN
+git log
+//lista commitów
+przywrócenie konkretnego
+git reset --hard asxxxxx
+
+
+
+///////////////////////////////////////////////////////////
+Branch czyli ga³¹Ÿ projektu
+Git umo¿liwia nam i innym tworzenie kilku wersji tego samego projektu. 
+W Gicie nazywa siê to branchem, czyli ga³êzi¹ projektu. 
+Przydaje siê to np. gdy chcemy przetestowaæ dwie ró¿ne zmiany tego samego pliku lub ca³ej grupy tych samych plików. 
+Git domyœlnie pracuje na ga³êzi g³ównej, czyli master. Bez problemu mo¿emy jednak dodaæ nowe ga³êzie:
+
+git branch testy
+
+W³aœnie utworzyliœmy ga³¹Ÿ testy. By siê na ni¹ prze³¹czyæ, wpisujemy:
+
+git checkout testy
+
+I ju¿ jesteœmy na nowej ga³êzi. Jeœli w pewnym momencie stwierdzimy, ¿e warto po³¹czyæ obie ga³êzie, wykorzystamy do tego polecenie:
+
+git merge nazwa-galezi
+
+Listê wszystkich ga³êzi dostêpnych projekcie wyœwietlimy za pomoc¹:
+
+git branch
+
+Ga³¹Ÿ aktualna bêdzie oznaczona gwiazdk¹ (*) przy nazwie. A jak usun¹æ niepotrzebn¹ nam ga³¹Ÿ? A no bardzo prosto, wystarczy wpisaæ:
+
+git branch -d nazwa-galezi-do-usuniecia
+
+Kilka innych pomocnych komend
+Zebra³em dla Was jeszcze kilka innych pomocnych komend, które mog¹ Wam siê kiedyœ przydaæ:
+
+git clone git://nazwaserwera/nazwaprojektu.git - klonuje, czyli kopiuje repozytorium prosto na Twój dysk twardy
+
+git status - pokazuje aktualny status plików
+
+git push nazwa-zdalnego-serwera nazwa-galezi --force - wymusza wys³anie na serwer Waszej wersji projektu nawet jeœli s¹ one niezgodne. 
+Nie polecam u¿ywaæ o ile to mo¿liwe
+
+Te najczêœciej stosuje siê razem:
+
+git fetch --all
+git reset --hard origin/master
+
+– wywo³anie tych dwóch komend sprawi, ¿e zostanie pobrana wersja repozytorium prosto z serwera usuwaj¹c Twoj¹ lokaln¹ wersjê danego repozytorium.
+ Mo¿e siê przydaæ w przypadku, gdy wersja nasza lokalna jest niezgodna z t¹ na serwerze i chcemy zrezygnowaæ z naszych zmian pobieraj¹c aktualn¹ „wersjê serwerow¹”.
+
